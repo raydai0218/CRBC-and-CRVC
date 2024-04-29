@@ -12,7 +12,7 @@ time parallel -j 2 --xapply \
         --pe1-2 $wd/01_trimmomatic/{1}_paired_2.fq.gz \
         --isolate --careful --cov-cutoff auto \
         -o $wd/02_spades/temp/{1} >> $wd/log/{1}_SPAdes.log 2>&1; \
-    seqkit seq -m 1000 $wd/02_spades/temp/{1}/contigs.fasta > $wd/02_spades/{1}.fna" \
+    seqkit seq -m 1000 $wd/02_spades/temp/{1}/contigs.fasta > $wd/02_spades/{1}.fna \
 ::: $(cat Genome_ID)
 ```
 
