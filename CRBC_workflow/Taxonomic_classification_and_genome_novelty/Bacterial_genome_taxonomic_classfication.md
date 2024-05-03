@@ -5,7 +5,7 @@ Genome Taxonomy Database (GTDB) r207 was used to classify the genome taxonomy.
 Use the gtdbtk `classify_wf` to classify genomes. 
 ```bash
 time gtdbtk classify_wf \
-        --genome_dir $wd/03_genome/QS50/ \
+        --genome_dir $wd/03_genome/ \
         --out_dir $wd/04_gtdbtk_r207 \
         --cpus 32 --extension fna --full_tree --debug \
         --prefix CRBC >> $wd/log/gtdbtk_classify_wf.log 2>&1
