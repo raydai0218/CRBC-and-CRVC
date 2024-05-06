@@ -2,7 +2,7 @@
 Breif workflows and code for crop root bacterial and viral genome collection construction and analysis
 
 ## Workflow of CRBC
-1. [CRBC genome construction](CRBC_workflow)
+1. [CRBC genome construction](CRBC_genome_construction)
 2. Bacterial genome taxonomic classfication
 3. Define novel bacterial species
 4. Bacterial gene prediction and functional annotation
