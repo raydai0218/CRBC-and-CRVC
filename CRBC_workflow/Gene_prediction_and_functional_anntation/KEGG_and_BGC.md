@@ -100,6 +100,7 @@ time parallel -j 2 --xapply \
 
 # summary results:
 cd $wd/09_BGCs/
+echo "GenomeID\tBGCID\tContig\tStart\tEnd\tLength" > $wd/CRBC_BGCs_basic_info.txt
 for i in `cat GenomeID`; do
     for j in `ls $wd/09_BGCs/$i/*region*.gbk`;do
         genome_and_gbk=`ls $j | sed "s,/,\t,"`;contig=`ls $j | sed "s,/,\t,;s,\.region,\t," | cut -f 2`;start=`grep "Orig. start" $j | cut -f 3 -d ':' | sed 's/ //g'`;end=`grep "Orig. end" $j | cut -f 3 -d ':' | sed 's/ //g'`;
