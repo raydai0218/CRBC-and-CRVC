@@ -91,13 +91,11 @@ rm -r $wd/08_diamond/temp/
 ## subset contigs with length >= 5kb
 ## run antismash
 time parallel -j 2 --xapply \
-    "seqkit seq -m 5000 $wd/03_genome/{1}.fna > $wd/09_BGCs/temp/{1}.fna;
     antismash -c 24 \
-        --allow-long-headers --asf \
+        --allow-long-headers --asf --minlength 5000 \
         --cb-general --cb-knownclusters --cb-subclusters --pfam2go \
         --output-dir $wd/09_BGCs/{1} \
         --genefinding-gff3 $wd/07_prodigal/sep_genome/{1}.gff \
-        $wd/03_genome/{1}.fna;
-    rm $wd/09_BGCs/temp/{1}.fna" ::: $(cat GenomeID)
+        $wd/03_genome/{1}.fna" ::: $(cat GenomeID)
 ```
 
