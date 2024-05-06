@@ -95,7 +95,15 @@ time parallel -j 2 --xapply \
         --allow-long-headers --asf --minlength 5000 \
         --cb-general --cb-knownclusters --cb-subclusters --pfam2go \
         --output-dir $wd/09_BGCs/{1} \
-        --genefinding-gff3 $wd/07_prodigal/sep_genome/{1}.gff \
+        --genefinding-gff3 $wd/07_prodigal/{1}.gff \
         $wd/03_genome/{1}.fna" ::: $(cat GenomeID)
-```
 
+# summary results:
+cd $wd/09_BGCs/
+for i in `cat GenomeID`; do
+    for j in `ls $wd/09_BGCs/$i/*region*.gbk`;do
+        genome_and_gbk=`ls $j | sed "s,/,\t,"`;contig=`ls $j | sed "s,/,\t,;s,\.region,\t," | cut -f 2`;start=`grep "Orig. start" $j | cut -f 3 -d ':' | sed 's/ //g'`;end=`grep "Orig. end" $j | cut -f 3 -d ':' | sed 's/ //g'`;
+        printf "%s\t%s\t%s\t%s\t%s\n" "$genome_and_gbk" "$contig" "$start" "$end" "$((end-start))" >> $wd/CRBC_BGCs_basic_info.txt
+    done
+done
+```
