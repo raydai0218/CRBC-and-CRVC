@@ -4,7 +4,7 @@
    
 ## Cluster genomes at species level  
 Note that since we want to compare the phylogenetic diversity of CRBC with published crop root bacteria, we include all crop root bacteria.
-- *Step 1: prepare the files for clustering*
+- **Step 1: prepare the files for clustering**
   1. Genome location
   2. Basic information of genomes, including contamination, completeness and N50, for calculating the drep score for genomes.
 ```bash
@@ -17,7 +17,7 @@ do
 ls $wd/03_genome/${i} >> $wd/05_drep/QS50_genome_location.txt
 done
 ```
-- *Step 2: Genome de-replication*  
+- **Step 2: Genome de-replication**  
 First, redundant genomes were removed with a threshold of 99.9% ANI.
 ```bash
 time dRep dereplicate $wd/05_drep/0.999_drep/ \
@@ -42,7 +42,7 @@ genome_rep<-genome_info%>%group_by(secondary_cluster)%>%arrange(type, -score)%>%
 write.csv(genome_rep, "data_tables/de_replicated_genomeID.txt",quote=F,sep="\t",row.names=F)
 ```
 
-- *Step 3: Species level cluster*    
+- **Step 3: Species level cluster**    
 Same as the step1 and 2, prepare genome data and run dRep, the only difference is to set the `-sa 0.95`.
 ```bash
 # 1. location and genome info:
@@ -87,7 +87,7 @@ The phylogenetic tree was visualized using R package ggtree, phylogenetic divers
 
 ## Identify novel species:
 Use comparison of CRBC with GTDB as an example.
-- *Step 1 Mash estimate genome distance*
+- **Step 1: Mash estimate genome distance**
 ```bash
 # 1. build sketch of gtdb and CRBC
 time mash sketch \
@@ -108,7 +108,7 @@ do
 grep -w $i $wd/05_novel_species/Mash/CRBC_GTDB_distances.tab | sort -gk3 | head -3 >> $wd/05_novel_species/Mash/CRBC_GTDB_closely_related.txt
 done
 ```
-- *Step 2 Calculate genome identity*
+- **Step 2: Calculate genome identity**
 ```bash
 # 1. dnadiff from mummer
  time parallel -j 96 --xapply \
