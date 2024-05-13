@@ -8,8 +8,9 @@ Put all the genomes into one directory `$wd/03_genome/`. Calculate the quality s
 ```bash
 # run checkm
 time checkm lineage_wf \
-    $wd/03_genome/ $wd/04_QC/checkM/ \
-    --pplacer_threads 24 -t 24 -x fna >> $wd/log/checkM.log 2>&1
+   $wd/03_genome/ $wd/04_QC/checkM/ \
+   -f $DIR/all_genomes/02_checkM/results.tsv --tab_table \
+   --pplacer_threads 24 -t 24 -x fna >> $wd/log/checkM.log 2>&1
 # extract import information
 sed 's/,/\t/g' $wd/04_QC/checkM/storage/bin_stats_ext.tsv | awk -F "\t" '{print $1 "\t" $12 "\t" $13 "\t" $14 "\t" $16 "\t" $19 "\t" $23 "\t" $26}' | sed "s/'Completeness': //g" | sed "s/'Contamination': //g" | sed "s/'GC': //g" | sed "s/'Genome size': //g" | sed "s/'# contigs': //g" | sed "s/'N50 (contigs)': //g" | sed "s/'Coding density': //g" | awk -F "\t" -v OFS="\t" '{$9=$2-5*$3;print $0}' | awk 'BEGIN{print "GenomeID" "\t" "Completeness" "\t" "Contamination" "\t" "GC" "\t" "Genome_size" "\t" "Contig_num" "\t" "N50" "\t" "Coding_density" "\t" "Quality_score"}1' > $wd/04_QC/checkM_result.tsv
 ```
