@@ -117,6 +117,7 @@ done
  ::: `cat $wd/05_novel_species/Mash/CRBC_GTDB_closely_related.txt | cut -f 2`
 
 # 2. summary identity and coverage:
+cd $wd/05_novel_species/mummer/temp/
 time parallel -j 96 --xapply \
 echo -e '{1} {2} `grep "AlignedBases" {1}_{2}.report` `grep "AvgIdentity" {1}_{2}.report | tail -1`' >> $wd/05_novel_species/mummer/CRBC_GTDB_ANI_AF_temp.txt \
 ::: `cat $wd/05_novel_species/Mash/CRBC_GTDB_closely_related.txt | cut -f 1` \
