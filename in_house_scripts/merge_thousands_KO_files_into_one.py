@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # @Author : Fang Liu
-# @Email: fliu21@genetics.ac.c
+# @Email: fliu21@genetics.ac.cn
 # @File : merge_thousands_KO_files_into_one.py
 
 import pandas as pd
