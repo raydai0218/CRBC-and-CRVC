@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # @Author : Fang Liu
-# @Email: fliu21@genetics.ac.c
+# @Email: fliu21@genetics.ac.cn
 # @File : fm6_to_KEGG_levels.py
 
 import pandas as pd
