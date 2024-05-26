@@ -18,18 +18,22 @@ time parallel -j 4 --xapply \
 ## CRISPR array:  
 **Step1: Predict crispr array using CRISPRCasFinder**  
 ```bash
+cd $wd/11_crisprcasfinder/
 ln -s $db/singularity/CrisprCasFinder.simg ./
-
+# note that genome file should in the doc
+mkdir -p $wd/11_crisprcasfinder/genome
 for i in `cat GenomeID`
 do
-    singularity exec -B $pwd CrisprCasFinder.simg \
-    perl /usr/local/CRISPRCasFinder/CRISPRCasFinder.pl \
-    -so /usr/local/CRISPRCasFinder/sel392v2.so \
-    -cf /usr/local/CRISPRCasFinder/CasFinder-2.0.3 \
-    -drpt /usr/local/CRISPRCasFinder/supplementary_files/repeatDirection.tsv \
-    -rpts /usr/local/CRISPRCasFinder/supplementary_files/Repeat_List.csv \
-    -cpuM 48 -log -q -cas -def G -out $wd/11_crisprcasfinder/${i} \
-    -in $wd/03_genome/{1}.fna
+   cp $wd/03_genome/${i}.fna $wd/11_crisprcasfinder/genome/${i}.fna
+    singularity exec -B $PWD CrisprCasFinder.simg \
+       perl /usr/local/CRISPRCasFinder/CRISPRCasFinder.pl \
+       -so /usr/local/CRISPRCasFinder/sel392v2.so \
+       -cf /usr/local/CRISPRCasFinder/CasFinder-2.0.3 \
+       -drpt /usr/local/CRISPRCasFinder/supplementary_files/repeatDirection.tsv \
+       -rpts /usr/local/CRISPRCasFinder/supplementary_files/Repeat_List.csv \
+       -cpuM 48 -log -q -cas -def G -out $wd/11_crisprcasfinder/${i} \
+       -in $wd/11_crisprcasfinder/genome/${i}.fna
+   rm $wd/11_crisprcasfinder/genome/${i}.fna
  done
 ```
 **Step2: Summarise the confidence level of crispr arrays**  
