@@ -43,7 +43,7 @@ The array informations are in the document `TSV/Crisprs_REPORT.tsv`. Note that i
 echo "GenomeID\tContigID\tCRISPR_Id\tCRISPR_Start\tCRISPR_End\tCRISPR_Length\tConsensus_Repeat\tSpacers_Nb\tEvidence_Level" > $wd/11_crisprcasfinder/CRBC_Crisprs_REPORT.tsv
 
 time cat GenomeID | parallel -j 24 --xapply \
-"grep -v ^$ $wd/11_crisprcasfinder/{1}/Crisprs_REPORT.tsv | tail -n+2 | cut -f 2,5,6,7,8,11,15,27 | sed 's/^/{1}\t/' >> $wd/11_crisprcasfinder/CRBC_Crisprs_REPORT.tsv"
+"grep -v ^$ $wd/11_crisprcasfinder/{1}/TSV/Crisprs_REPORT.tsv | tail -n+2 | cut -f 2,5,6,7,8,11,15,27 | sed 's/^/{1}\t/' >> $wd/11_crisprcasfinder/CRBC_Crisprs_REPORT.tsv"
 
 # add array name
 awk -F "\t" -v OFS="\t" '{$10=$2"_"$4"_"$5;print $0}' $wd/11_crisprcasfinder/CRBC_Crisprs_REPORT.tsv | sed "s/Sequence_CRISPR_Start_CRISPR_End/ArrayID/" > $wd/11_crisprcasfinder/CRBC_Crisprs_REPORT_with_name.tsv
