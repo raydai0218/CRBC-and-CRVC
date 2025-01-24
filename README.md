@@ -19,12 +19,12 @@ Reference genomes of root microbes are essential for metagenomic analyses and me
   
 ## Workflow of CRVC  
 The reference of virus pipline is https://github.com/snayfach/MGV 
-1. [CRVC genome construction]
-2. Viral genome taxonomic classification
-3. Define novel viral species and genera
-4. Viral gene prediction and functional annotation
-5. Viral lifestyle prediction: barrnap (https://github.com/tseemann/barrnap) and VIBRANT (https://github.com/AnantharamanLab/VIBRANT)
-6. Host prediction: CRISPRCasFinder (https://github.com/dcouvin/CRISPRCasFinder), geNomad (https://portal.nersc.gov/genomad) and VirSorter (https://github.com/simroux/VirSorter)
+1. [CRVC genome construction](CRVC_workflow/CRVC_gene_prediction_and_functional_annotation.md)
+2. **Viral genome taxonomic classification**: https://github.com/apcamargo/ictv-mmseqs2-protein-database
+3. [Define novel viral species and genera](CRVC_workflow/Species_Genus_level_clustering.md)
+4. [Viral gene prediction and functional annotation](CRVC_workflow/CRVC_gene_prediction_and_functional_annotation.md)
+5. **Viral lifestyle prediction**: barrnap (https://github.com/tseemann/barrnap) and VIBRANT (https://github.com/AnantharamanLab/VIBRANT)
+6. **Host prediction**: CRISPRCasFinder (https://github.com/dcouvin/CRISPRCasFinder), geNomad (https://portal.nersc.gov/genomad) and VirSorter (https://github.com/simroux/VirSorter)
 
 
 ## Referernce
