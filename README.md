@@ -9,13 +9,13 @@ Reference genomes of root microbes are essential for metagenomic analyses and me
 - The bacterial and viral genomes, along with annotation files, and other related data are accessible on Zenodo (accessions: 14091751, 14095420, 13918137, and 13939322). Raw sequencing data for bacterial genomes and root metagenomes are available on NCBI (accession PRJNA1183633 and PRJNA1184367), and maize rhizosphere metagenome data are available on ENA (accession PRJEB77048). The genomic data in this work are also accessible through our website (http://www.cropmicrobiome.com/).
 
 ## Workflow of CRBC
-1. CRBC genome construction
-2. Taxonomic classification and genome novelty
-3. Bacterial gene prediction and functional annotation
-4. BGC diversity and novelty analysis
-5. Defense system and CRlSPR array
-6. Calculate bacterial abundance, prevalence and growth rate
-7. Construction of Kraken2 database
+1. [CRBC genome construction](CRBC_workflow/CRBC_genome_construction)
+2. [Taxonomic classification and genome novelty](CRBC_workflow/Taxonomic_classification_and_genome_novelty)
+3. [Bacterial gene prediction and functional annotation](CRBC_workflow/Gene_prediction_and_functional_annotation)
+4. [BGC diversity and novelty analysis](BGC_diversity_and_novelty_analysis)
+5. [Defense system and CRlSPR array](Defense_system_and_CRISPR_array)
+6. [Calculate bacterial abundance, prevalence and growth rate](Bacterial_abundance_and_growth_rate)
+7. [Construction of Kraken2 database](Generate_of_Kraken2_database)
   
 ## Workflow of CRVC  
 The reference of virus pipline is https://github.com/snayfach/MGV 
