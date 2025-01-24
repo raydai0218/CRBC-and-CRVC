@@ -17,10 +17,16 @@ Reference genomes of root microbes are essential for metagenomic analyses and me
 6. Calculate bacterial abundance, prevalence and growth rate
 7. Construction of Kraken2 database
   
-## Workflow of CRVC
+## Workflow of CRVC  
+The reference of virus pipline is https://github.com/snayfach/MGV 
 1. CRVC genome construction
 2. Viral genome taxonomic classification
 3. Define novel viral species and genera
 4. Viral gene prediction and functional annotation
 5. Viral lifestyle prediction
 6. Host prediction
+
+
+## Referernce
+If you find the data and code available, please, include the following citation:
+Rui Dai*, Jingying Zhang*, Fang Liu*, Haoran Xu, Jingmei Qian, Shani Cheskis, Weidong Liu, Lotte J. U. Pronk, Marnix H. Medema, Ronnie de Jonge, Corné M.J. Pieterse, Asaf Levy, Klaus Schlaeppi, Yang Bai. Crop root bacterial and viral genome resources unveil novel species and conserved patterns of root microbiomes. In preparation.
